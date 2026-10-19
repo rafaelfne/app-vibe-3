@@ -1,15 +1,4 @@
 version: 1
-init:
-  completed:
-    - tools
-    - agent
-    - github
-    - supabase
-    - local
-    - railway
-    - keys
-    - guardrails
-  last_run: 2026-10-19
 tool: claude-code
 github:
   repo: rafaelfne/app-vibe-3
