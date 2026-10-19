@@ -34,5 +34,5 @@ secrets:
       at: 2026-10-19
 guardrails:
   hooks: .githooks
-  virgilio_version: 0.2.0
+  virgilio_version: 0.2.1
   required_checks: true
