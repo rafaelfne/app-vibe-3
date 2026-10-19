@@ -34,7 +34,7 @@ secrets:
       at: 2026-10-19
 guardrails:
   hooks: .githooks
-  virgilio_version: 0.3.0
+  virgilio_version: 0.3.1
   required_checks: true
 rls:
   migration: 20261019142128_virgilio_rls.sql
