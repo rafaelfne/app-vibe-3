@@ -26,6 +26,7 @@ railway:
   project_id: 867d0eb5-e0af-459a-a1ab-2a9cecb20859
   environment_id: 88a15700-0e44-4514-bfcf-8c4289143555
   service_id: d1118519-681b-48ed-b4fa-2b136231c73f
+  deploy_gate: true
 secrets:
   handled:
     - fingerprint: 81733bc37cf4b625
@@ -34,7 +35,7 @@ secrets:
       at: 2026-10-19
 guardrails:
   hooks: .githooks
-  virgilio_version: 0.4.0
+  virgilio_version: 0.5.0
   required_checks: true
 rls:
   migration: 20261019220001_virgilio_rls.sql
