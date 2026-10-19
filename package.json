@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "node -e \"try{const c=require('child_process');c.execSync('git rev-parse --git-dir',{stdio:'ignore'});c.execSync('git config core.hooksPath .githooks')}catch{}\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
