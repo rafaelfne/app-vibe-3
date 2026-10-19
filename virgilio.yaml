@@ -37,7 +37,7 @@ guardrails:
   virgilio_version: 0.3.1
   required_checks: true
 rls:
-  migration: 20261019142128_virgilio_rls.sql
+  migration: 20261019220001_virgilio_rls.sql
   public_read: []
 ai_rules:
   files:
