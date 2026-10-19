@@ -1,0 +1,41 @@
+name: virgilio-backup
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: virgilio-backup
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    env:
+      DB_URL: ${{ secrets.SUPABASE_DB_URL_PRD }}
+      VIRGILIO_BACKUP_PUBLIC_KEY: ${{ vars.VIRGILIO_BACKUP_PUBLIC_KEY }}
+    steps:
+      - uses: supabase/setup-cli@45a513f8c64c0bc8e0e3dfe572b5c95be85f6359
+        with:
+          version: 2.121.0
+      - name: install virgilio
+        run: |
+          set -euo pipefail
+          curl -fsSL -o virgilio.tar.gz https://github.com/Omnex-Labs/virgilio-releases/releases/download/v0.4.0/virgilio-linux-x64.tar.gz
+          echo "9b07cbbcf8969a25cfb75de9d3ed48c6f2452c175584c984d3f057ace0c186a7  virgilio.tar.gz" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/bin"
+          tar -xzf virgilio.tar.gz -C "$RUNNER_TEMP/bin" virgilio
+          rm virgilio.tar.gz
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      - name: dump and encrypt
+        run: virgilio backup create --out "$RUNNER_TEMP/virgilio-backup"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: virgilio-backup-${{ github.run_id }}
+          path: ${{ runner.temp }}/virgilio-backup/*.vgb
+          retention-days: 90
+          if-no-files-found: error

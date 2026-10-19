@@ -34,7 +34,7 @@ secrets:
       at: 2026-10-19
 guardrails:
   hooks: .githooks
-  virgilio_version: 0.3.1
+  virgilio_version: 0.4.0
   required_checks: true
 rls:
   migration: 20261019220001_virgilio_rls.sql
@@ -46,3 +46,7 @@ ai_rules:
     - .claude/settings.json
     - .mcp.json
   enforcement: hook
+backup:
+  automatic: virgilio-weekly
+  public_key: vgbpub1_Kuy3RjJr862QyxxCB6HsUMYQ8-qfinIcgeMT8drgQQM
+  workflow: .github/workflows/virgilio-backup.yml
