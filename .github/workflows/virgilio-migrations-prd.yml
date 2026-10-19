@@ -26,8 +26,8 @@ jobs:
       - name: install virgilio
         run: |
           set -euo pipefail
-          curl -fsSL -o virgilio.tar.gz https://github.com/Omnex-Labs/virgilio-releases/releases/download/v0.2.0/virgilio-linux-x64.tar.gz
-          echo "46fe66421ec65472027d4e9720743c0e86cb8d8d04f15ab5add71fcbd6f7d848  virgilio.tar.gz" | sha256sum -c -
+          curl -fsSL -o virgilio.tar.gz https://github.com/Omnex-Labs/virgilio-releases/releases/download/v0.2.1/virgilio-linux-x64.tar.gz
+          echo "399f73cf6288e85596bc9121f1c331531ae7e2ca83731f11442fb507fb565d5c  virgilio.tar.gz" | sha256sum -c -
           mkdir -p "$RUNNER_TEMP/bin"
           tar -xzf virgilio.tar.gz -C "$RUNNER_TEMP/bin" virgilio
           rm virgilio.tar.gz
