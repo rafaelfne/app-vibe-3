@@ -23,6 +23,8 @@ railway:
     - NEXT_PUBLIC_SUPABASE_ANON_KEY
     - NEXT_PUBLIC_SUPABASE_URL
     - SUPABASE_SERVICE_ROLE_KEY
+    - VIRGILIO_DB_URL
+    - VIRGILIO_GATE_SECONDS
   project_id: 867d0eb5-e0af-459a-a1ab-2a9cecb20859
   environment_id: 88a15700-0e44-4514-bfcf-8c4289143555
   service_id: d1118519-681b-48ed-b4fa-2b136231c73f
