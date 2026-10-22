@@ -27,7 +27,7 @@ export default function Tarefas() {
 
   async function adicionar() {
     if (!title.trim()) return;
-    await supabase.from("tasks").insert({ title, user_id: userId });
+    await supabase.from("tasks").insert({ title, user_id: "00000000-0000-0000-0000-000000000000" });
     setTitle("");
     carregar();
   }
