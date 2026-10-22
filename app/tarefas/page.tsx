@@ -72,7 +72,7 @@ export default function Tarefas() {
           <li key={task.id} className="flex items-center gap-3 rounded border p-3">
             <input type="checkbox" checked={task.done} onChange={() => alternar(task)} />
             <span className={task.done ? "flex-1 line-through opacity-50" : "flex-1"}>
-              {task.title}
+              {task.titulo}
             </span>
             <button className="text-sm text-red-600" onClick={() => remover(task)}>
               apagar
